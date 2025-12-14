@@ -4,360 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Renga Nrithyalaya</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --primary: #8B4513;
+            --secondary: #D2691E;
+            --accent: #FFD700;
+            --light: #FFF8DC;
+            --dark: #4A2C2A;
+            --text: #333333;
+        }
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text);
             line-height: 1.6;
-            color: #333;
-            background-color: #f9f5f0;
+            background-color: #fefcf8;
         }
-
-        /* Navigation - Matching Homepage */
-        nav {
-            background: #8B0000;
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
             color: white;
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
         }
-
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #FFD700;
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-            font-size: 1rem;
-        }
-
-        .nav-links a:hover {
-            color: #FFD700;
-        }
-
-        .mobile-menu {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* Page Header */
-        .page-header {
-            background: linear-gradient(rgba(139, 0, 0, 0.8), rgba(139, 0, 0, 0.9)), url('https://images.unsplash.com/photo-1547153760-18fc86324498?ixlib=rb-4.0.3');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
-            padding: 5rem 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .page-header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: #FFD700;
-        }
-
-        .page-header p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        /* Content Sections */
-        .content-section {
-            padding: 4rem 5%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            color: #8B0000;
-            font-size: 2.2rem;
-            margin-bottom: 2rem;
-            text-align: center;
-            position: relative;
-            padding-bottom: 1rem;
-        }
-
-        .section-title:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
-            background: #FFD700;
-        }
-
-        /* School Info */
-        .school-info {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-bottom: 4rem;
-        }
-
-        .school-text, .teacher-text {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            border-top: 5px solid #8B0000;
-        }
-
-        .school-text h3, .teacher-text h3 {
-            color: #8B0000;
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            font-family: 'Playfair Display', serif;
-        }
-
-        /* Teacher Section */
-        .teacher-section {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            margin-bottom: 4rem;
-            border-top: 5px solid #8B0000;
-        }
-
-        /* Locations */
-        .locations {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .location-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            text-align: center;
-            border-top: 5px solid #8B0000;
-        }
-
-        .location-card i {
-            font-size: 2.5rem;
-            color: #8B0000;
-            margin-bottom: 1rem;
-        }
-
-        .location-card h3 {
-            color: #8B0000;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .location-card .address {
-            font-style: italic;
-            color: #666;
-            margin: 1rem 0;
-        }
-
-        .location-card .time {
-            color: #8B0000;
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-
-        /* Footer */
-        footer {
-            background: #8B0000;
-            color: white;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 4rem;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .social-icons {
-            margin: 1rem 0;
-        }
-
-        .social-icons a {
-            color: white;
-            margin: 0 0.5rem;
-            font-size: 1.2rem;
-            transition: color 0.3s;
-        }
-
-        .social-icons a:hover {
-            color: #FFD700;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .mobile-menu {
-                display: block;
-            }
-            
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: #8B0000;
-                flex-direction: column;
-                padding: 1rem;
-                text-align: center;
-            }
-            
-            .nav-links.active {
-                display: flex;
-            }
-            
-            .page-header h1 {
-                font-size: 2.2rem;
-            }
-            
-            .school-info {
-                grid-template-columns: 1fr;
-            }
-            
-            .section-title {
-                font-size: 1.8rem;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- Navigation -->
-    <nav>
-        <a href="index.html" class="logo">Renga Nrithyalaya</a>
-        <div class="mobile-menu">
-            <i class="fas fa-bars"></i>
-        </div>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html" class="active">About Us</a></li>
-            <li><a href="events-gallery.html">Events & Gallery</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="faq.html">FAQ</a></li>
-        </ul>
-    </nav>
-
-    <!-- Page Header -->
-    <header class="page-header">
-        <h1>About Renga Nrithyalaya</h1>
-        <p>Preserving the rich tradition of Bharatanatyam in the heart of Canberra</p>
-    </header>
-
-    <!-- School Information -->
-    <section class="content-section">
-        <h2 class="section-title">Our School</h2>
         
-        <div class="school-info">
-            <div class="school-text">
-                <h3>Embark on a Cultural Journey</h3>
-                <p>Renga Nrithyalaya, nestled in the heart of Canberra, stands as a beacon for the celebration, instruction, and preservation of Bharatanatyam, an age-old classical dance form. Under the esteemed guidance of Srimati Aksharha Gopianth, the director of this esteemed institution, numerous passionate learners find their rhythm.</p>
-                <p>It was named by her spiritual mentor, Guru Maharanyam Sri Sri Muralidhara Swamiji, echoing the profound spiritual essence that underpins its teachings.</p>
-            </div>
-            
-            <div class="school-text">
-                <h3>Our Teaching Philosophy</h3>
-                <p>At Renga Nrithyalaya, students are meticulously groomed in the Pandanallur and Kalakshetra styles of Bharatanatyam. The curriculum is thoughtfully structured, guiding learners from the fundamentals to the intricacies of adavus, and finally leading them gracefully into the realm of natyams.</p>
-                <p>With each step of their journey, students amass a wealth of knowledge, culminating in the prestigious milestones of Salangai pooja and Arangetram, marking their transition into accomplished dancers.</p>
-            </div>
-        </div>
-
-        <!-- Teacher Section -->
-        <div class="teacher-section">
-            <h2 class="section-title">Our Director</h2>
-            <div class="teacher-text">
-                <h3>Mrs. Aksharha Gopinath</h3>
-                <p>Mrs. Aksharha Gopinath holds the position of EL in a Government Agency and serves as the Director of Renga Nrithyalaya School. She received her Bharatanatyam training from Guru Dr. Srividya Sundaresan, a dedicated instructor in the art form.</p>
-                <p>Beginning her training at the age of 6, she completed her Arangetram at 13. Simultaneously pursuing a diploma in Bharatanatyam from Bharathidasan University alongside her Engineering studies in IT, she demonstrated a strong commitment to both disciplines.</p>
-                <p>While employed at esteemed companies such as Cognizant and Paypal, she also imparted dance lessons to students in Chennai, India. Furthermore, she received early music training from her mother, Mrs. Sulochana Gopinath, and further honed her skills under the guidance of Mrs. Bhuvaneshwari Chandrasekar, who belongs to the Thiyagaraja Shishya Parampara.</p>
-            </div>
-        </div>
-
-        <!-- Locations -->
-        <h2 class="section-title">Our Locations</h2>
-        <div class="locations">
-            <div class="location-card">
-                <i class="fas fa-map-marker-alt"></i>
-                <h3>Issacs Studio</h3>
-                <p class="address">11 Bromby St, Issacs ACT 2607</p>
-                <p class="time"><i class="far fa-clock"></i> Thursdays from 6:00 PM</p>
-                <p>Conveniently located for students in South Canberra</p>
-            </div>
-            
-            <div class="location-card">
-                <i class="fas fa-map-marker-alt"></i>
-                <h3>Bruce Studio</h3>
-                <p class="address">62 Thynne St, Bruce ACT 2617</p>
-                <p class="time"><i class="far fa-clock"></i> Saturdays from 9:30 AM</p>
-                <p>Perfect for students in North Canberra and surrounding areas</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <h3>Renga Nrithyalaya</h3>
-            <p>Preserving Bharatanatyam traditions in Canberra since its inception</p>
-            <div class="social-icons">
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
-                <a href="#"><i class="fas fa-envelope"></i></a>
-            </div>
-            <p>Email: info@renga-nrithyalaya.com | Phone: +61 400 000 000</p>
-            <p>&copy; 2024 Renga Nrithyalaya. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script>
-        // Mobile menu toggle
-        document.querySelector('.mobile-menu').addEventListener('click', function() {
-            document.querySelector('.nav-links').classList.toggle('active');
-        });
-        
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.querySelector('.nav-links').classList.remove('active');
-            });
-        });
-    </script>
-</body>
-</html>
+        .header
